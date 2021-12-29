@@ -70,7 +70,7 @@ function logAMost5(n) {
 `O(n)` - Linear growth (Think about the big picture - not `O(2n)`).
 
 **Example 4**
-`O(n2)` - Quadratic growth, An nested `O(n)` operation.
+`O(n^2)` - Quadratic growth, An nested `O(n)` operation.
 
 **Example 5**
 `O(n)` - as `n` grows `O` grows.
@@ -88,7 +88,7 @@ function logAMost5(n) {
 ##### Smaller terms don't matter
 `O(n + 10)` => `O(n)`
 `O(1000n + 50)` => `O(n)`
-`O(n2 + 5n + 8)` => `O(n2)`
+`O(n2 + 5n + 8)` => `O(n^2)`
 
 ### Big O shorthands
 * Analyzing complexity with big O can get complicated
