@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Problem Solving.md",
+            "file": "Sorting.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Problem Solving.md",
+                "file": "Sorting.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,6 +87,9 @@
   },
   "active": "ca786278e0417615",
   "lastOpenFiles": [
+    "Sorting.md",
+    "Searching Algorithms.md",
+    "Recursion.md",
     "Problem Solving.md",
     "Data Structures.md",
     "Big O Notation.md"
