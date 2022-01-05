@@ -81,21 +81,24 @@ Builds up the sort by gradually creating a larger left half which is always sort
 
 ```
 function insertionSort(arr) {
+	// comments refer to the second loop over.
 	for(let i = 1; i < arr.length; i++) {
-		let currentVal = arr[i]; // 1
-		// 9
+		let currentVal = arr[i]; // i = 2 // i = 3
+		// 9 // 53
 
-		for(var j = i - 1; j >= 0; j--) {
-			if (currentVal < arr[j]) { // if 1 is less than 2 // if 9 is less than 1
-				arr[j+1] = arr[j] // the value of index 1 of the arr will equal 2
+		for(var j = i - 1; j >= 0; j--) { // j = 1 // j = 2
+			if (currentVal < arr[j]) { // if 9 is less than 2 // if 53 < 9
+				arr[j+1] = arr[j];
 			} else {
 				break;
 
-				// 9 is not less than 1
+				// here.
 			}
 		}
 
-		arr[j+1] = currentVal; // the value of index 2 of the arr will equal 9
+
+		// j = 2
+		arr[j+1] = currentVal;
 	}
 	return arr;
 }
@@ -103,4 +106,7 @@ function insertionSort(arr) {
 
 
 insertionSort([2,1,9,53,34]);
+
+[1,2,9,53,34]
+
 ```
