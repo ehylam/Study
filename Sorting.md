@@ -67,3 +67,40 @@ function selectionSort(arr) {
 } 
 
 ```
+
+
+### Insertion Sort
+Builds up the sort by gradually creating a larger left half which is always sorted.
+
+#### Pseudocode
+* Start by picking the second element in the array
+* Now compare the second element with the one before it and swap if necessary.
+* Continue to the next element and if it is the incorrect order, iterate through the sorted portion (i.e. the left side) to place the element in the correct place.
+* Repeat until the array is sorted.
+
+
+```
+function insertionSort(arr) {
+	for(let i = 1; i < arr.length; i++) {
+		let currentVal = arr[i]; // 1
+		// 9
+
+		for(var j = i - 1; j >= 0; j--) {
+			if (currentVal < arr[j]) { // if 1 is less than 2 // if 9 is less than 1
+				arr[j+1] = arr[j] // the value of index 1 of the arr will equal 2
+			} else {
+				break;
+
+				// 9 is not less than 1
+			}
+		}
+
+		arr[j+1] = currentVal; // the value of index 2 of the arr will equal 9
+	}
+	return arr;
+}
+
+
+
+insertionSort([2,1,9,53,34]);
+```
