@@ -296,3 +296,34 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
 	return arr;
 }
 ```
+
+
+#### Alternative code
+```
+function quickSort(arr) {
+	// if the array contains only 1 item.
+	if(arr.length <= 1) return arr; // returns 2
+
+
+	let pivot = arr[0]; // 23 // 5 // 42 // 6
+	let left = []; // 5, 2, 6, 10 // 2 // 
+	let right = []; // 42, 100 // 6, 10, 42, 100 // 100
+
+	for(let i = 1; i < arr.length; i++) {
+		if(arr[i] <= pivot) left.push(arr[i]) // 42 <= 23 // 5 <= 23 push
+		else if(arr[i] > pivot) right.push(arr[i]); // push
+		
+	}
+
+	left = quickSort(left); // 2
+	right = quickSort(right); // 6, 10
+
+	result = left.concat(pivot).concat(right); // 2, 5, 6 ...
+
+	return result;
+}
+
+
+quickSort([23,42,5,2,6,10,100]);
+
+```
