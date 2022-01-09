@@ -301,7 +301,8 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
 #### Alternative code
 ```
 function quickSort(arr) {
-	// if the array contains only 1 item.
+	// if the array capp
+	ontains only 1 item.
 	if(arr.length <= 1) return arr; // returns 2
 
 
@@ -315,8 +316,8 @@ function quickSort(arr) {
 		
 	}
 
-	left = quickSort(left); // 2
-	right = quickSort(right); // 6, 10
+	left = quickSort(left); // 2 // 2, 5, 6, 10
+	right = quickSort(right); // 6, 10 // 42, 100
 
 	result = left.concat(pivot).concat(right); // 2, 5, 6 ...
 
@@ -326,4 +327,83 @@ function quickSort(arr) {
 
 quickSort([23,42,5,2,6,10,100]);
 
+```
+
+
+### Radix Sort
+* A special sorting algorithm that works on lists of numbers.
+* It never makes comparisons between elements.
+* It exploits the fact that information about sizing of a number is encoded in the number of digits.
+
+
+#### Radix sort helpers
+```
+const getDigit = (num, i) => Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
+
+
+const digitCount = (num) => {
+	if(num === 0) return 1;
+	return Math.floor(Math.log10(Math.abs(num))) + 1;
+}
+
+const mostDigits = (nums) => {
+	let maxDigits = 0;
+	
+	for(let i = 0; i < nums.length; i++) {
+		maxDigits = Math.max(maxDigits, digitCount(nums[i]));
+	}
+
+	return maxDigits;
+}
+```
+
+
+#### Radix Sort Pseudocode
+* Define a function that accepts list of numbers
+* Figure out how many digits the largest number has
+* Loop from k = 0 up to this largest number of digits
+* For each iteration of the loop:
+	* Create buckets for each digit (0 to 9)
+	* place each number in the corresponding bucket based on it's `k`th digit
+* Replace our existing array with values in our buckets, starting with 0 and going up to 9
+* return list at the end
+
+```
+function radixSort(nums) {
+	const getDigit = (num, i) => Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
+	
+	const digitCount = (num) => {
+		if(num === 0) return 1;
+		return Math.floor(Math.log10(Math.abs(num))) + 1;
+	}
+	
+	const mostDigits = (nums) => {
+		let maxDigits = 0;
+		
+		for(let i = 0; i < nums.length; i++) {
+			maxDigits = Math.max(maxDigits, digitCount(nums[i]));
+		}
+	
+		return maxDigits;
+	}
+
+	let numArr = nums;
+	let maxDigitCount = mostDigits(numArr);
+
+	for(let k = 0; k < maxDigitCount; k++) {
+		let digitBuckets = Array.from({length: 10}, () => []);
+
+		for(let i = 0; i < numArr.length; i++) {
+			let digit = getDigit(numArr[i], k);
+			digitBuckets[digit].push(numArr[i]);
+		}
+
+		numArr = [].concat(...digitBuckets);
+		
+	}
+
+	return numArr;
+}
+
+radixSort([23,524,63454,643,23,12,7,2343]);
 ```
