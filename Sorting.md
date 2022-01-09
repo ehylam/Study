@@ -361,7 +361,7 @@ const mostDigits = (nums) => {
 #### Radix Sort Pseudocode
 * Define a function that accepts list of numbers
 * Figure out how many digits the largest number has
-* Loop from k = 0 up to this largest number of digits
+* Loop from `k = 0` up to this largest number of digits
 * For each iteration of the loop:
 	* Create buckets for each digit (0 to 9)
 	* place each number in the corresponding bucket based on it's `k`th digit
